@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://scripts/__can_walk.gd"
+"path": "res://scripts/__test_inheritance.gd"
 } ]
 _global_script_class_icons={
 "Entity": ""
