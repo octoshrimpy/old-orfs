@@ -21,11 +21,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Dorfs"
+run/main_scene="res://scenes/map.tscn"
 config/icon="res://icon.png"
 
 [display]
 
+window/size/width=1920
+window/size/height=1080
 window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+window/stretch/shrink=8.0
 
 [importer_defaults]
 
