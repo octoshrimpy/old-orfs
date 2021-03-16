@@ -1,4 +1,4 @@
-extends "res://scripts/Character.gd"
+extends Node
 
 
 
@@ -6,9 +6,9 @@ extends "res://scripts/Character.gd"
 func _ready():
 
 	# overrides
-	can_attack = true
+#	can_attack = true
 
-
+	pass
 
 
 

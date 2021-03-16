@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Reference
 
 # base stats
 var health = 100
@@ -11,6 +11,7 @@ var lung_capacity = 10
 var speed = 5
 var move_loc_target # Vector3(X,Y,Z)
 
+var can_do = []
 
 
 
@@ -119,14 +120,12 @@ func hold_grudge():
 
 
 
-
-
 ############################################
 # default funcs
 
 
 func _ready():
-	pass # Replace with function body.
+	print(can_do)
 
 
 
