@@ -1,4 +1,4 @@
-extends Reference
+extends KinematicBody2D
 
 # base stats
 var health = 100
@@ -11,8 +11,10 @@ var lung_capacity = 10
 var speed = 5
 var move_loc_target # Vector3(X,Y,Z)
 
-var can_do = []
-
+# basic needs
+var hunger
+var thirst
+var tiredness
 
 
 ############################################
@@ -42,13 +44,13 @@ enum Clumsiness {
 
 # this one may not be as useful, since a mob could be friendly and patrolling
 #TODO: think about this later
-enum State {
-	FRIENDLY,
-	IDLE,
-	PATROL,
-	ANGRY,
-	ATTACK,
-}
+#enum State {
+#	FRIENDLY,
+#	IDLE,
+#	PATROL,
+#	ANGRY,
+#	ATTACK,
+#}
 
 enum Mood {
 	HAPPY,
@@ -120,12 +122,14 @@ func hold_grudge():
 
 
 
+
+
 ############################################
 # default funcs
 
 
 func _ready():
-	print(can_do)
+	pass # Replace with function body.
 
 
 
