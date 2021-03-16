@@ -35,9 +35,9 @@ class Die:
 	
 	static func init(obj):
 		obj.what_do.append("die")
-		obj.can_die = true
-		obj.die = funcref(Die, "do")
+		obj.vars["can_die"] = true
+		obj.vars["die"] =  funcref(Die, "do")
 		
 	static func do():
-		return "am ded!"
+		print("am ded!")
 		
