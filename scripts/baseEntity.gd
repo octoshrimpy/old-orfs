@@ -22,19 +22,19 @@ var tiredness
 # http://dwarffortresswiki.org/index.php/DF2014:Attribute
 
 enum Strength {
-	
+  
 }
 
 enum Endurance {
-	
+  
 }
 
 enum Willpower {
-	
+  
 }
 
 enum Clumsiness {
-	
+  
 }
 
 
@@ -53,33 +53,33 @@ enum Clumsiness {
 #}
 
 enum Mood {
-	HAPPY,
-	CONTENT,
-	NEUTRAL,
-	UPSET,
-	ANGRY
+  HAPPY,
+  CONTENT,
+  NEUTRAL,
+  UPSET,
+  ANGRY
 }
 
 enum Hunger {
-	STARVING,
-	HUNGRY,
-	NEUTRAL,
-	SATISFIED,
-	STUFFED
+  STARVING,
+  HUNGRY,
+  NEUTRAL,
+  SATISFIED,
+  STUFFED
 }
 
 enum Wetness {
-	DRY,
-	WET,
-	SOPPING
+  DRY,
+  WET,
+  SOPPING
 }
 
 enum Energy {
-	ENERGIZED,
-	REFRESHED,
-	NEUTRAL,
-	TIRED,
-	EXHAUSTED
+  ENERGIZED,
+  REFRESHED,
+  NEUTRAL,
+  TIRED,
+  EXHAUSTED
 }
 
 
@@ -102,14 +102,14 @@ var needs_water : bool = false
 # movement
 
 func walk_to_loc():
-	pass
+  pass
 
 func swim_to_loc():
-	pass
+  pass
 
 func fly_to_loc():
-	# if distance is greater than x, fly, else call walk_to_loc()
-	pass
+  # if distance is greater than x, fly, else call walk_to_loc()
+  pass
 
 
 
@@ -117,7 +117,7 @@ func fly_to_loc():
 # ai shenanigans
 
 func hold_grudge():
-	pass
+  pass
 
 
 
@@ -129,7 +129,7 @@ func hold_grudge():
 
 
 func _ready():
-	pass # Replace with function body.
+  pass # Replace with function body.
 
 
 
