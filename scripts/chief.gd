@@ -7,20 +7,19 @@ var attributes = {}
 
 func _ready():
     preload("res://scripts/run.gd").add(self)
-    lib.oprint(what_do)
-    
-#
-#  if can("die"):
-#    print("can die!")
-#    do("die")
+    Lib.oprint(what_do)
+
+    if can("die"):
+      print("can die!")
+      do("die")
 
     if can("run"):
-        print("can run!")
-        do("run")
-        
-    if can("die"):
-        print("can die!")
-        do("die")
+      print("can run!")
+      do("run")
+#
+#   if can("die"):
+#       print("can die!")
+#       do("die")
 
 #    Testing.can_die.init(self)
 #    Testing.can_walk.init(self)

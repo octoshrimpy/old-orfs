@@ -1,6 +1,6 @@
 extends Reference
 
-class_name lib
+class_name Lib
 
 static func oprint(msg):
     print("[ -O- ] ", msg)
