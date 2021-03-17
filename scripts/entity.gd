@@ -3,13 +3,16 @@
 extends KinematicBody2D
 class_name Entity
 
-export var what_do = {}
+var what_do = {}
+
+var _can = {}     
 
 func _ready():
-  pass
+    pass
   
 func can(action):
-  what_do.has(action)
-  
+    if !what_do.has(action): lib.err("action " + action + " not supported")
+    return what_do.has(action)
+    
 func do(action):
-  what_do[action].do()
+    what_do[action].do()

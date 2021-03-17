@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "BaseEntity",
 "language": "GDScript",
-"path": "res://scripts/classes.gd"
+"path": "res://scripts/BaseEntity.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Entity",
@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "Testing",
 "language": "GDScript",
 "path": "res://scripts/__test_inheritance.gd"
+}, {
+"base": "Reference",
+"class": "lib",
+"language": "GDScript",
+"path": "res://scripts/lib.gd"
 } ]
 _global_script_class_icons={
 "BaseEntity": "",
 "Entity": "",
-"Testing": ""
+"Testing": "",
+"lib": ""
 }
 
 [application]
