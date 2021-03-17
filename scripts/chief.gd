@@ -2,6 +2,12 @@
 
 extends Entity
 
+export var what_do = []
+
+var vars = {}
+
+var attributes = {}
+
 func _ready():
   preload("res://scripts/run.gd").add(self)
   
@@ -15,6 +21,12 @@ func _ready():
   if can("run"):
     print("can run!")
     do("run")
+	
+	Entity.can_die.init(self)
+	Entity.can_walk.init(self)
+
+
+
 
 
 ##########################################
