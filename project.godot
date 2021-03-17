@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "BaseEntity",
+"language": "GDScript",
+"path": "res://scripts/classes.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://scripts/classes.gd"
+"path": "res://scripts/entity.gd"
+}, {
+"base": "Reference",
+"class": "Testing",
+"language": "GDScript",
+"path": "res://scripts/__test_inheritance.gd"
 } ]
 _global_script_class_icons={
-"Entity": ""
+"BaseEntity": "",
+"Entity": "",
+"Testing": ""
 }
 
 [application]

@@ -1,6 +1,6 @@
 extends Reference
 
-class_name Entity
+class_name Testing
 
 class Die:
   extends Reference
