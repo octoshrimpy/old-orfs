@@ -4,6 +4,7 @@ extends Entity
 
 var vars = {}
 var attributes = {}
+export var active = false
 
 func _ready():
     preload("res://scripts/run.gd").add(self)
@@ -40,7 +41,18 @@ const FRICTION = 550
 
 var velocity = Vector2.ZERO
 
+func _input(event):
+  #  This should detect if the click is on the actual sprite. This takes graphical things. All you @octoshrimpy ;) 
+  # https://www.reddit.com/r/godot/comments/7xwr22/guide_how_to_click_a_sprite
+  # This has some potentials ^^
+  if event is InputEventMouseButton:
+    active = !active
+
 func _physics_process(delta):
+  if active:
+    move_with_input(delta)
+
+func move_with_input(delta):
   var input_vector = Vector2.ZERO
   input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
   input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")

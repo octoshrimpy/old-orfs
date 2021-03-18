@@ -5,4 +5,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="chief" parent="." instance=ExtResource( 1 )]
-position = Vector2( 15.5564, 16.617 )
+position = Vector2( 13.6681, 17.7431 )
+active = true
+
+[node name="chief2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 46.7983, 17.2566 )
