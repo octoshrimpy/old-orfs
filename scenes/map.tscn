@@ -10,3 +10,4 @@ active = true
 
 [node name="chief2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 46.7983, 17.2566 )
+active = false

@@ -1,45 +1,6 @@
-# chief
+extends Node
 
-extends Entity
-
-var vars = {}
-var attributes = {}
-export var active = false
-
-
-# is controlled module
-var is_controlled = false
-
-func _ready():
-  add_to_group("controllables")
-  preload("res://scripts/base entity expansions/run.gd").add(self)
-  Lib.oprint(what_do)
-
-  if can("die"):
-    print("can die!")
-    do("die")
-
-  if can("run"):
-    print("can run!")
-    do("run")
-#
-#   if can("die"):
-#       print("can die!")
-#       do("die")
-
-#    Testing.can_die.init(self)
-#    Testing.can_walk.init(self)
-#    BaseEntity.track_hunger.init(self)
-#
-#func _physics_process(delta):
-#    if self.attributes.is_chief:
-#        BaseEntity.is_chief._physics_process(delta)
-
-
-
-##########################################
-# movement by player
-
+# is_controlled
 const ACCELERATION = 550
 const MAX_SPEED = 100
 const FRICTION = 550
@@ -47,10 +8,21 @@ const FRICTION = 550
 var velocity = Vector2.ZERO
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+  pass # Replace with function body.
+
+
+
+
+# is_controlled module
+
 # this should be a module within entity
 func _unhandled_input(event):
   if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
-    if $Sprite.get_rect().has_point(get_local_mouse_position()):
+    var position = event.position
+#    if self.get_parent().get_node(self).get_rect().has_point(event.position):
+    if true:
       print('test')
       get_tree().set_input_as_handled() # if you don't want subsequent input callbacks to respond to this input
       
@@ -62,15 +34,6 @@ func _unhandled_input(event):
       #enable what was clicked on   
       self.is_controlled = true
 
-      
-
-func _physics_process(delta):
-  
-  # is controlled module
-  if is_controlled:
-    move_with_input(delta)
-
-# is controlled module
 func move_with_input(delta):
   var input_vector = Vector2.ZERO
   input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")

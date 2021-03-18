@@ -50,7 +50,7 @@ class track_hunger:
         if (randi() % 51) < 10:
             track_hunger.hunger - (randi() % 51)
             
-        lib.oprint(track_hunger)
+        Lib.oprint(track_hunger)
     
 class track_air:
     pass

@@ -6,8 +6,9 @@
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 394, 212 )
 script = ExtResource( 1 )
+active = null
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="dorf_collision" type="CollisionShape2D" parent="."]
