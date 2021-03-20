@@ -49,22 +49,26 @@ const FRICTION = 550
 var velocity = Vector2.ZERO
 
 
-# this should be a module within entity
+# This should be a module within entity
 func _unhandled_input(event):
   if event is InputEventMouseButton and event.pressed and not event.is_echo() and event.button_index == BUTTON_LEFT:
     if $Sprite.get_rect().has_point(get_local_mouse_position()):
-      print('test')
       get_tree().set_input_as_handled() # if you don't want subsequent input callbacks to respond to this input
 
-      # disable all other controllables
+      # Disable all other controllables
       var controllables = get_tree().get_nodes_in_group("controllables")
       for controllable in controllables:
         controllable.is_controlled = false
 
-      #enable what was clicked on
+      # Enable what was clicked on
       self.is_controlled = true
 
 func _process(delta):
+  if is_controlled:
+    $Sprite.modulate = Color(1, 1, 1)
+  else:
+    $Sprite.modulate = Color(0.1, 0.1, 0.1)
+
   # Calculate the movement distance for this frame
   var distance_to_walk = speed * delta
 
@@ -72,38 +76,14 @@ func _process(delta):
   while distance_to_walk > 0 and path.size() > 0:
     var distance_to_next_point = position.distance_to(path[0])
     if distance_to_walk <= distance_to_next_point:
-      # The player does not have enough movement left to get to the next point.
       position += position.direction_to(path[0]) * distance_to_walk
+      if position.direction_to(path[0]).x > 0:
+        $Sprite.flip_h = false
+      else:
+        $Sprite.flip_h = true
     else:
       # The player get to the next point
       position = path[0]
       path.remove(0)
     # Update the distance to walk
     distance_to_walk -= distance_to_next_point
-
-func _physics_process(delta):
-
-  # is controlled module
-  if is_controlled:
-    move_with_input(delta)
-
-# is controlled module
-func move_with_input(delta):
-  var input_vector = Vector2.ZERO
-  input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
-  input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
-  input_vector = input_vector.normalized()
-
-  # flip sprite
-  if Input.get_action_strength("ui_left"):
-    $Sprite.flip_h = true
-  elif Input.get_action_strength("ui_right"):
-    $Sprite.flip_h = false
-
-  if input_vector != Vector2.ZERO:
-    velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-  else:
-    velocity = velocity.move_toward(Vector2.ZERO, FRICTION  * delta)
-
-
-  velocity = move_and_slide(velocity)

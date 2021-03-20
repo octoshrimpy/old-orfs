@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scenes/chief.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/map.gd" type="Script" id=2]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 48.1848, 110.578, 129.932, 135.614, 4.50103, 135.614, 23.9161, 110.068, 35.6672, 87.3316, 1.05322, 6.89918, 64.0233, 6.86152, 72.709, 70.2157, 140.406, 52.8444, 86.5039, 70.9821, 222.409, 7.62791, 224.963, 133.059, 160.843, 132.037, 158.033, 54.6326, 95.1895, 5.58423 )
@@ -12,21 +13,25 @@ outlines = [ PoolVector2Array( 1.05322, 6.89918, 64.0233, 6.86152, 72.709, 70.21
 script = ExtResource( 2 )
 
 [node name="Chief" parent="." instance=ExtResource( 1 )]
-position = Vector2( 13.6681, 17.7431 )
+position = Vector2( 15.5684, 15.0284 )
 z_index = 1
 active = true
 
 [node name="Chief2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 46.7983, 17.2566 )
 z_index = 1
-active = false
 
 [node name="Navigation2D" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-position = Vector2( 0.501213, -5.20996 )
+position = Vector2( 0.392624, -5.20996 )
 navpoly = SubResource( 1 )
 
 [node name="Line2D" type="Line2D" parent="Navigation2D"]
 width = 1.0
 default_color = Color( 0.4, 0.501961, 1, 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2( 20, 20 )
+current = true
+script = ExtResource( 3 )

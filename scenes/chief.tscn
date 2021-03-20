@@ -6,7 +6,6 @@
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 394, 212 )
 script = ExtResource( 1 )
-active = null
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

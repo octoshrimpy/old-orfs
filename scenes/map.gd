@@ -7,7 +7,7 @@ func _unhandled_input(event):
       for controllable in controllables:
         print(controllable.position)
         if controllable.is_controlled:
-          var path = $Navigation2D.get_simple_path(controllable.position, event.position)
+          var path = $Navigation2D.get_simple_path(controllable.position, get_global_mouse_position())
           $Navigation2D/Line2D.points = path
           controllable.path = path
           
