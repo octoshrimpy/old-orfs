@@ -1,37 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://scenes/chief.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/map.gd" type="Script" id=2]
-[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=3]
+[ext_resource path="res://scripts/base_dorf.gd" type="Script" id=1]
+[ext_resource path="res://scenes/dorf.tscn" type="PackedScene" id=2]
 
-[sub_resource type="NavigationPolygon" id=1]
-vertices = PoolVector2Array( 48.1848, 110.578, 129.932, 135.614, 4.50103, 135.614, 23.9161, 110.068, 35.6672, 87.3316, 1.05322, 6.89918, 64.0233, 6.86152, 72.709, 70.2157, 140.406, 52.8444, 86.5039, 70.9821, 222.409, 7.62791, 224.963, 133.059, 160.843, 132.037, 158.033, 54.6326, 95.1895, 5.58423 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 3, 2, 5, 6 ), PoolIntArray( 4, 6, 7, 0 ), PoolIntArray( 8, 1, 0, 9 ), PoolIntArray( 10, 11, 12, 13 ), PoolIntArray( 14, 10, 13, 8 ), PoolIntArray( 9, 14, 8 ), PoolIntArray( 0, 7, 9 ) ]
-outlines = [ PoolVector2Array( 1.05322, 6.89918, 64.0233, 6.86152, 72.709, 70.2157, 86.5039, 70.9821, 95.1895, 5.58423, 222.409, 7.62791, 224.963, 133.059, 160.843, 132.037, 158.033, 54.6326, 140.406, 52.8444, 129.932, 135.614, 4.50103, 135.614 ), PoolVector2Array( 35.6672, 87.3316, 48.1848, 110.578, 23.9161, 110.068 ) ]
+[node name="Node2D" type="Node2D"]
 
-[node name="Root" type="Node2D"]
-script = ExtResource( 2 )
-
-[node name="Chief" parent="." instance=ExtResource( 1 )]
-position = Vector2( 15.5684, 15.0284 )
-z_index = 1
-active = true
-
-[node name="Chief2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 46.7983, 17.2566 )
-z_index = 1
-
-[node name="Navigation2D" type="Navigation2D" parent="."]
-
-[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
-position = Vector2( 0.392624, -5.20996 )
-navpoly = SubResource( 1 )
-
-[node name="Line2D" type="Line2D" parent="Navigation2D"]
-width = 1.0
-default_color = Color( 0.4, 0.501961, 1, 1 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2( 20, 20 )
-current = true
-script = ExtResource( 3 )
+[node name="dorf" parent="." instance=ExtResource( 2 )]
+position = Vector2( 60.6542, 31.7839 )
+script = ExtResource( 1 )
