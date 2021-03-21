@@ -12,22 +12,22 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "BaseEntity",
 "language": "GDScript",
-"path": "res://scripts/BaseEntity.gd"
+"path": "res://__old_stuff/scripts/BaseEntity.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Entity",
 "language": "GDScript",
-"path": "res://scripts/entity.gd"
+"path": "res://__old_stuff/scripts/entity.gd"
 }, {
 "base": "Reference",
 "class": "Lib",
 "language": "GDScript",
-"path": "res://scripts/lib.gd"
+"path": "res://__old_stuff/scripts/lib.gd"
 }, {
 "base": "Reference",
 "class": "Testing",
 "language": "GDScript",
-"path": "res://scripts/__test_inheritance.gd"
+"path": "res://__old_stuff/scripts/__test_inheritance.gd"
 } ]
 _global_script_class_icons={
 "BaseEntity": "",
@@ -39,8 +39,8 @@ _global_script_class_icons={
 [application]
 
 config/name="Dorfs"
-run/main_scene="res://scenes/testmap.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://__old_stuff/scenes/testmap.tscn"
+config/icon="res://__old_stuff/icon.png"
 
 [display]
 
@@ -106,4 +106,4 @@ ui_down={
 
 [rendering]
 
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://__old_stuff/default_env.tres"
