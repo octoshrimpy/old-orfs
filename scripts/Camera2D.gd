@@ -8,7 +8,7 @@ const SLIDE_SPEED = 8
 const FOLLOW_MARGIN_X = 30
 const FOLLOW_MARGIN_Y = 15
 
-var _currentZoom = 1
+var _currentZoom = 0.5
 var _previousPosition: Vector2 = Vector2(0, 0)
 var _isDragging: bool = false
 

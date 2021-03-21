@@ -9,7 +9,7 @@ export var active = false
 
 # is controlled module
 var is_controlled = false
-var speed = 50
+var speed = 150
 var path : = PoolVector2Array()
 
 func _ready():
@@ -24,6 +24,7 @@ func _ready():
   if can("run"):
     print("can run!")
     do("run")
+    
 #
 #   if can("die"):
 #       print("can die!")
@@ -87,3 +88,6 @@ func _process(delta):
       path.remove(0)
     # Update the distance to walk
     distance_to_walk -= distance_to_next_point
+    
+
+    

@@ -39,7 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dorfs"
-run/main_scene="res://scenes/map.tscn"
+run/main_scene="res://scenes/testmap.tscn"
 config/icon="res://icon.png"
 
 [display]
