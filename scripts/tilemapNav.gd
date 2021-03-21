@@ -1,5 +1,9 @@
 extends Navigation2D
 
+###########################
+# from >> https://github.com/ToxicCrack/godot-tilemap-navigation
+###########################
+
 var navTileset
 
 func _ready():
