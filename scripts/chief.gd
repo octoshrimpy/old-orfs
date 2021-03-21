@@ -66,9 +66,9 @@ func _unhandled_input(event):
 
 func _process(delta):
   if is_controlled:
-    $Sprite.modulate = Color(1, 1, 1)
+    self.is_glowing(true)
   else:
-    $Sprite.modulate = Color(0.1, 0.1, 0.1)
+    self.is_glowing(false)
 
   # Calculate the movement distance for this frame
   var distance_to_walk = speed * delta
@@ -89,5 +89,6 @@ func _process(delta):
     # Update the distance to walk
     distance_to_walk -= distance_to_next_point
     
-
+func is_glowing(val):
+  $glow.visible = val
     
