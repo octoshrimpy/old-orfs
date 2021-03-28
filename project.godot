@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Mob",
+"class": "Animal",
+"language": "GDScript",
+"path": "res://Entity/Mob/Animal/Animal.gd"
+}, {
 "base": "Reference",
 "class": "BaseEntity",
 "language": "GDScript",
 "path": "res://Entity/BaseEntity.gd"
+}, {
+"base": "Livestock",
+"class": "Cow",
+"language": "GDScript",
+"path": "res://Entity/Mob/Animal/Livestock/Cow/Cow.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Entity",
@@ -24,15 +34,29 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/lib.gd"
 }, {
+"base": "Animal",
+"class": "Livestock",
+"language": "GDScript",
+"path": "res://Entity/Mob/Animal/Livestock/livestock.gd"
+}, {
+"base": "Entity",
+"class": "Mob",
+"language": "GDScript",
+"path": "res://Entity/Mob/Mob.gd"
+}, {
 "base": "Reference",
 "class": "Testing",
 "language": "GDScript",
 "path": "res://Entity/__test_inheritance.gd"
 } ]
 _global_script_class_icons={
+"Animal": "",
 "BaseEntity": "",
+"Cow": "",
 "Entity": "",
 "Lib": "",
+"Livestock": "",
+"Mob": "",
 "Testing": ""
 }
 

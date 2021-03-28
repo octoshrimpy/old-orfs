@@ -2,7 +2,7 @@
 
 [ext_resource path="res://scripts/Camera2D.gd" type="Script" id=1]
 [ext_resource path="res://scripts/map.gd" type="Script" id=2]
-[ext_resource path="res://scenes/chief.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entity/Dorf/chief.tscn" type="PackedScene" id=3]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 48.1848, 110.578, 129.932, 135.614, 4.50103, 135.614, 23.9161, 110.068, 35.6672, 87.3316, 1.05322, 6.89918, 64.0233, 6.86152, 72.709, 70.2157, 140.406, 52.8444, 86.5039, 70.9821, 222.409, 7.62791, 224.963, 133.059, 160.843, 132.037, 158.033, 54.6326, 95.1895, 5.58423 )
