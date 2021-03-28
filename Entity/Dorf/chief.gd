@@ -28,20 +28,6 @@ func _ready():
     print("can run!")
     do("run")
     
-#
-#   if can("die"):
-#       print("can die!")
-#       do("die")
-
-#    Testing.can_die.init(self)
-#    Testing.can_walk.init(self)
-#    BaseEntity.track_hunger.init(self)
-#
-#func _physics_process(delta):
-#    if self.attributes.is_chief:
-#        BaseEntity.is_chief._physics_process(delta)
-
-
 
 ##########################################
 # movement by player
@@ -56,8 +42,11 @@ var velocity = Vector2.ZERO
 # This should be a module within entity
 func _unhandled_input(event):
   if event is InputEventMouseButton and event.pressed and not event.is_echo():
+    if not $Sprite.get_rect().has_point(get_local_mouse_position()):
+      return
+      
     if event.button_index == BUTTON_LEFT:      
-      if $Sprite.get_rect().has_point(get_local_mouse_position()):
+      
         get_tree().set_input_as_handled() # if you don't want subsequent input callbacks to respond to this input
 
         # Disable all other controllables
@@ -100,7 +89,8 @@ func is_glowing(val):
   $glow.visible = val
     
     
-    
+  
+##########################################  
 # switch professions
 enum sprite_states {
   STONED = 0,

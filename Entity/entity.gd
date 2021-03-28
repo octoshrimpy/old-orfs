@@ -1,4 +1,3 @@
-# chief
 
 extends KinematicBody2D
 class_name Entity
@@ -11,9 +10,8 @@ func _ready():
     pass
   
 func can(action):
-    if !what_do.has(action): Lib.err("action " + action + " not supported")
+    if !what_do.has(action): print("action " + action + " not supported")
     return what_do.has(action)
     
 func do(action):
     what_do[action].do()
-
