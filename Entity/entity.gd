@@ -12,7 +12,6 @@ var idle_wander_range = 7
 
 var _idle = false
 var _idle_timer = null
-var _rand_timer_count
 
 onready var _map = get_tree().get_current_scene().get_node("map")
 onready var _nav = _map.get_node("Navigation2D")
@@ -67,31 +66,30 @@ func _do_pathing(delta):
 
 func _idle(delta):
   if not _idle == true:
-    return  
-  if _idle_timer != null:
     return
-  
+  if _idle_timer == null:
+    _reset_idle_timer()
+
+
+func _reset_idle_timer():
   randomize()
   
-  _idle_timer = Timer.new()
-  add_child(_idle_timer)
+  if _idle_timer == null:
+    _idle_timer = Timer.new()
+    add_child(_idle_timer)
   
   # BUG timer isn't changing time, and wandering around is same time between calls
   _idle_timer.connect("timeout", self, "_on_idle_timer_timeout")
-  self._rand_timer_count = rand_range(1, 3)
-  print(self._rand_timer_count)
-  _idle_timer.set_wait_time(self._rand_timer_count)
+  var timer_count = set_timer_count()
+  _idle_timer.set_wait_time(timer_count)
   _idle_timer.set_one_shot(false)
   _idle_timer.start()
   
+func set_timer_count():
+  Lib.err("Not implemented - this function should be defined on the instance.")
   
 func _on_idle_timer_timeout():
-  var x = rand_range(-idle_wander_range, idle_wander_range) * 5
-  var y = rand_range(-idle_wander_range, idle_wander_range) * 5
-  
-  var path_to = Vector2(global_position.x + x, global_position.y + y)
-  
-  self.path_to(path_to)
+  Lib.err("Not implemented - this function should be defined on the instance.")
   
   
 #################################################    
