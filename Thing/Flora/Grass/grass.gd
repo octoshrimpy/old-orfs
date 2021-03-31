@@ -7,13 +7,19 @@ func _ready():
 var resources
 var max_yield = 100
 
+var growth_rate = 100 # Avg +resources/min
+
 func init():
+  Rand.calc_stats(1000)
   # add_to_group("tickables")
   self.resources = randi() % 10
   check_growth()
   print("Resources: " + str(resources))
 
 func tick():
+  check_growth()
+
+func check_growth():
   if resources == max_yield:
     return
   if (randi() % 2) == 1:
@@ -24,12 +30,9 @@ func tick():
     resources = max_yield
     print("Full!")
 
-  check_growth()
-
-func check_growth():
   var sprite_count = 4
   var mod = int(max_yield / sprite_count)
-  var next_frame = sprite_count - 1 - int(resources / mod)
+  var next_frame = int(resources / mod)
 
   if next_frame == $Sprite.frame:
     return

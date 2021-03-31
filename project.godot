@@ -55,6 +55,11 @@ _global_script_classes=[ {
 "path": "res://Entity/Mob/Mob.gd"
 }, {
 "base": "Reference",
+"class": "Rand",
+"language": "GDScript",
+"path": "res://scripts/Rand.gd"
+}, {
+"base": "Reference",
 "class": "Testing",
 "language": "GDScript",
 "path": "res://Entity/__test_inheritance.gd"
@@ -74,6 +79,7 @@ _global_script_class_icons={
 "Lib": "",
 "Livestock": "",
 "Mob": "",
+"Rand": "",
 "Testing": "",
 "Thing": ""
 }
