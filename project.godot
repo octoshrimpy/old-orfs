@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Entity/entity.gd"
 }, {
+"base": "Thing",
+"class": "Flora",
+"language": "GDScript",
+"path": "res://Thing/Flora/flora.gd"
+}, {
+"base": "Flora",
+"class": "Grass",
+"language": "GDScript",
+"path": "res://Thing/Flora/Grass/grass.gd"
+}, {
 "base": "Reference",
 "class": "Lib",
 "language": "GDScript",
@@ -48,16 +58,24 @@ _global_script_classes=[ {
 "class": "Testing",
 "language": "GDScript",
 "path": "res://Entity/__test_inheritance.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Thing",
+"language": "GDScript",
+"path": "res://Thing/thing.gd"
 } ]
 _global_script_class_icons={
 "Animal": "",
 "BaseEntity": "",
 "Cow": "",
 "Entity": "",
+"Flora": "",
+"Grass": "",
 "Lib": "",
 "Livestock": "",
 "Mob": "",
-"Testing": ""
+"Testing": "",
+"Thing": ""
 }
 
 [application]

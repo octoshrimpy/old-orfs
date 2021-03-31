@@ -18,32 +18,33 @@ onready var _nav = _map.get_node("Navigation2D")
 onready var _line = _map.get_node("Line2D")
 
 func _ready():
-  print(_nav)
-  print(_line)
-  
+  pass
+  # print(_nav)
+  # print(_line)
+
 func can(action):
     if !what_do.has(action): print("action " + action + " not supported")
     return what_do.has(action)
-    
+
 func do(action):
     what_do[action].do()
-    
-    
-#################################################    
+
+
+#################################################
 # begin private Entity functions
-#################################################       
-    
+#################################################
+
 func _process(delta):
   _do_pathing(delta)
-  _idle(delta)  
+  _idle(delta)
 
-    
+
 # called every _process
 func _do_pathing(delta):
   #drop out early
-  if not path.size() > 0: 
+  if not path.size() > 0:
     return
-  
+
   # Calculate the movement distance for this frame
   var distance_to_walk = speed * delta
 
@@ -73,37 +74,33 @@ func _idle(delta):
 
 func _reset_idle_timer():
   randomize()
-  
+
   if _idle_timer == null:
     _idle_timer = Timer.new()
     add_child(_idle_timer)
-  
+
   # BUG timer isn't changing time, and wandering around is same time between calls
   _idle_timer.connect("timeout", self, "_on_idle_timer_timeout")
   var timer_count = set_timer_count()
   _idle_timer.set_wait_time(timer_count)
   _idle_timer.set_one_shot(false)
   _idle_timer.start()
-  
+
 func set_timer_count():
   Lib.err("Not implemented - this function should be defined on the instance.")
-  
+
 func _on_idle_timer_timeout():
   Lib.err("Not implemented - this function should be defined on the instance.")
-  
-  
-#################################################    
+
+
+#################################################
 # begin public Entity functions
-#################################################  
+#################################################
 
 func path_to(path_to):
-#  print("pathing...")
-  
   path = self._nav.get_simple_path(global_position, path_to)
-  
+
   # this is for DEBUG purposes only
   self._line.points = path
 
   self.path = path
-  
-  
