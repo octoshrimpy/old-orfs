@@ -2,7 +2,7 @@ extends Reference
 class_name Rand
 
 static func one_in(odds_range_i): # 1 in x chance to return true
-  return rangef(0, odds_range_i) == 0
+  return rangei(1, odds_range_i) == 1
 
 static func bellbias(min_f, max_f, bias_val, weight):
   var weighted_values = Array()
@@ -24,7 +24,7 @@ static func bell(min_f, max_f, weight):
   for _i in weight:
     rand_total += rangef(min_f, max_f)
 
-  return int(rand_total / weight)
+  return rand_total / weight
 
 static func rangef(min_f, max_f):
   return randf() * (max_f - min_f) + min_f
@@ -36,8 +36,8 @@ static func rangei(min_i, max_i):
 static func calc_stats():
   var hold_stats = Array()
   for _f in range(10000):
-    # var val = rangef(0, 10)
-    var val = round(bellbias(0, 10, 7, 2)) # Swap for other test function
+    var val = rangei(-10, 10)
+    # var val = round(bellbias(0, 10, 7, 2)) # Swap for other test function
     hold_stats.push_back(val)
 
   return stats(hold_stats)

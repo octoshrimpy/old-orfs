@@ -10,6 +10,7 @@ var max_yield = 0 # Cap level of resources
 var growth_rate = 0 # Avg resources/min to increase
 
 func _ready():
+  add_to_group("tickables")
   self.stages = $Sprite.hframes
   self.variants = $Sprite.vframes
   self.variant = Rand.rangei(1, $Sprite.vframes - 1)
@@ -18,13 +19,14 @@ func _ready():
 func tick():
   check_growth()
   check_spread()
-  debug()
 
 func check_growth():
-  var ticks_per_min = 60 # Hardcoded for now. Ideally ticks are somewhat random
+  if growth_rate == 0:
+    return
   if resources == max_yield:
     return
 
+  # debug()
   var avg_resource_per_tick = (growth_rate / float(ticks_per_min))
   resources += Rand.bellbias(0, avg_resource_per_tick*3, avg_resource_per_tick, 2)
   if resources > max_yield:
@@ -38,7 +40,6 @@ func check_growth():
   if frame == $Sprite.frame:
     return
 
-  debug()
   $Sprite.frame = frame
 
 func debug():
@@ -49,11 +50,32 @@ func debug():
   })
 
 func check_spread():
-  if !Rand.one_in(100):
-    return
+  spread() # Temp while testing spread mechanics
 
+  # TODO: Hardcoding this. Figure out how to extract it into an option later
+  var chance = 100 - int((resources / 10) * 5)
+  # resources[1] = 1/100 chance to spread each tick
+  # resources[100] = 1/50 chance to spread each tick
+  if Rand.one_in(chance):
+    spread()
+
+func spread():
   print("Spread!")
-  # Rarely, linearly likely (Small grass has low chance of spreading, tall grass has higher)
-  # Find open space nearby (square touching grid?)
+  var cell_size = $Sprite.texture.get_size()
+  var spread_min_distance = 1 # Min number of cells away to spread
+  var spread_max_distance = 1 # Max number of cells away to spread
+  var multiplier_arr = [-1, 1]
+  multiplier_arr.shuffle()
+  var x_offset = Rand.rangei(spread_min_distance, spread_max_distance) * multiplier_arr.front()
+  multiplier_arr.shuffle()
+  var y_offset = Rand.rangei(spread_min_distance, spread_max_distance) * multiplier_arr.front()
+  var distance = Vector2(x_offset * cell_size.x, y_offset * cell_size.y)
+  var spawn_location = get_position() + distance
+
+  # TODO: Verify the space is open
   #   -- open space cannot contain other grass or objects (trees/bushes)
-  # spawn grass
+  # TODO: Spawn new object at `spawn_location`
+  print(spawn_location)
+  # MAYBE: Instead get all possible locations of spread, remove the taken spaces, the select randomly.
+  # - Pros: More realistic spread (more grass means more likely to spread)
+  # - Cons: Could be expensive if something can spread over a large area (tree saplings may be carried by wind a great distance?)

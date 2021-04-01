@@ -3,6 +3,7 @@ class_name Thing
 
 var resources
 var tick_timer
+var ticks_per_min = 60
 
 func _ready():
   start_timer()
@@ -23,6 +24,6 @@ func start_timer():
   self.add_child(tick_timer)
 
   tick_timer.connect("timeout", self, "tick")
-  tick_timer.set_wait_time(1.0)
+  tick_timer.set_wait_time(float(ticks_per_min) / 60.0) # Wait time is based on seconds
   tick_timer.set_one_shot(false) # Make sure it loops
   tick_timer.start()

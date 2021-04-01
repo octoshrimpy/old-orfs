@@ -101,6 +101,6 @@ func path_to(path_to):
   path = self._nav.get_simple_path(global_position, path_to)
 
   # this is for DEBUG purposes only
-  self._line.points = path
+  # self._line.points = path
 
   self.path = path
