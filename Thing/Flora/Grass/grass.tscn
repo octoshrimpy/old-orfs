@@ -17,3 +17,4 @@ shape = SubResource( 1 )
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 4
+frame = 4

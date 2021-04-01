@@ -34,7 +34,7 @@ static func calc_stats():
   var hold_stats = Array()
   for _i in range(5000):
     # var val = rangei(0, 100)
-    var val = bellbiasi(0, 100, 30, 2) # Swap for other test function
+    var val = bellbiasi(0, 10, 3, 3) # Swap for other test function
     hold_stats.push_back(val)
 
   return stats(hold_stats)
