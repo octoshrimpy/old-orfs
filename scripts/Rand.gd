@@ -1,11 +1,10 @@
 extends Reference
 class_name Rand
 
-static func odds_are(odds_range_i): # 1 in x chance to return true
+static func one_in(odds_range_i): # 1 in x chance to return true
   return rangef(0, odds_range_i) == 0
 
 static func bellbias(min_f, max_f, bias_val, weight):
-  randomize()
   var weighted_values = Array()
   for _i in weight:
     weighted_values.push_back(rangef(min_f, max_f))
@@ -20,7 +19,6 @@ static func bellbias(min_f, max_f, bias_val, weight):
   return (norm * (1 - mix)) + (bias_val * mix)
 
 static func bell(min_f, max_f, weight):
-  randomize()
   # weight is how likely the middle values are over the outer values as a multiplier (2 is double)
   var rand_total = 0
   for _i in weight:
@@ -29,11 +27,9 @@ static func bell(min_f, max_f, weight):
   return int(rand_total / weight)
 
 static func rangef(min_f, max_f):
-  randomize()
   return randf() * (max_f - min_f) + min_f
 
 static func rangei(min_i, max_i):
-  randomize()
   return (randi() % ((max_i - min_i) + 1) + min_i)
 
 # Just used for testing purposes
