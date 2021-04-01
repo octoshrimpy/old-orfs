@@ -10,7 +10,7 @@ var max_yield = 100
 var growth_rate = 100 # Avg +resources/min
 
 func init():
-  Rand.calc_stats(1000)
+  Rand.calc_stats()
   # add_to_group("tickables")
   self.resources = randi() % 10
   check_growth()
@@ -22,10 +22,8 @@ func tick():
 func check_growth():
   if resources == max_yield:
     return
-  if (randi() % 2) == 1:
-    return
 
-  resources += (randi() % 5) + 5
+  resources += Rand.belli(0, 10, 3)
   if resources > max_yield:
     resources = max_yield
     print("Full!")
