@@ -14,9 +14,9 @@ var max_yield = 100
 var growth_rate = 10 # Avg resources/min to increase
 
 func init():
-  Rand.calc_stats()
+  # Rand.calc_stats()
   # add_to_group("tickables")
-  self.resources = randi() % 10
+  self.resources = Rand.rangef(0, 10)
   self.stages = $Sprite.hframes
   self.variants = $Sprite.vframes
   self.variant = Rand.rangei(1, $Sprite.vframes - 1)
@@ -25,14 +25,15 @@ func init():
 func tick():
   check_growth()
   check_spread()
+  debug()
 
 func check_growth():
   var ticks_per_min = 60 # Hardcoded for now. Ideally ticks are somewhat random
   if resources == max_yield:
     return
 
-  var avg_resource_per_tick = (growth_rate / ticks_per_min)
-  resources += Rand.bellbiasi(0, avg_resource_per_tick*2, avg_resource_per_tick, 2)
+  var avg_resource_per_tick = (growth_rate / float(ticks_per_min))
+  resources += Rand.bellbias(0, avg_resource_per_tick*3, avg_resource_per_tick, 2)
   if resources > max_yield:
     resources = max_yield
     print("Full!")
@@ -48,7 +49,17 @@ func check_growth():
   $Sprite.frame = frame
 
 func debug():
-  print("[resources: " + str(resources) + " | variant: " + str(variant) + " | frame: " + str(frame) + "]")
+  Lib.debug({
+   "resources": resources,
+   "variant": variant,
+   "frame": frame
+  })
 
 func check_spread():
-  pass
+  if !Rand.odds_are(100):
+    return
+  print("Spread!")
+  # Rarely, linearly likely (Small grass has low chance of spreading, tall grass has higher)
+  # Find open space nearby (square touching grid?)
+  #   -- open space cannot contain other grass or objects (trees/bushes)
+  # spawn grass
