@@ -6,10 +6,10 @@ class_name Cow
 func _ready():
   self._idle = true
   self.speed = 8
-  self.sprite_faces_right = false
+  self.idle_wander_range = 4
 
 func set_timer_count():
-  return rand_range(1, 10)
+  return rand_range(10, 15)
 
 func _on_idle_timer_timeout():
   var x = rand_range(-idle_wander_range, idle_wander_range) * 5

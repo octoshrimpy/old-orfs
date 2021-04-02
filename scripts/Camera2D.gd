@@ -18,7 +18,8 @@ func _unhandled_input(event):
   zoom(event)
 
 func _process(delta):
-  follow_slide()
+  pass
+#  follow_slide()
 
 func drag_slide(event):
   if event is InputEventMouseButton && event.button_index == BUTTON_LEFT:
