@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scenes/map & nav.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Entity/Dorf/dorf.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scripts/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://scripts/map.gd" type="Script" id=5]
 [ext_resource path="res://Thing/Flora/Grass/grass.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Thing/Flora/Bush/red Berries/RedBerriesBush.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Entity/Mob/Animal/Livestock/Cow/Cow.tscn" type="PackedScene" id=8]
 
 [node name="overworld" type="Node2D"]
@@ -17,6 +18,9 @@ script = ExtResource( 5 )
 
 [node name="Grass" parent="things" instance=ExtResource( 6 )]
 position = Vector2( 64, 32 )
+
+[node name="bush" parent="things" instance=ExtResource( 7 )]
+position = Vector2( 179.252, 26.163 )
 
 [node name="entities" type="Node" parent="."]
 
